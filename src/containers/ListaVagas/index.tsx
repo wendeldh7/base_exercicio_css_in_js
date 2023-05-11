@@ -1,22 +1,21 @@
-import { useState } from 'react'
-import FormVagas from '../../components/FormVagas'
+import { useState } from 'react';
+import FormVagas from '../../components/FormVagas';
+import Vaga, { VagaProps } from '../../components/Vaga';
 
-import Vaga from '../../components/Vaga'
+import styles from './ListaVagas.module.css';
 
-import styles from './ListaVagas.module.css'
+type VagaData = {
+  id: number;
+  titulo: string;
+  localizacao: string;
+  nivel: string;
+  modalidade: string;
+  salarioMin: number;
+  salarioMax: number;
+  requisitos: string[];
+};
 
-type Vaga = {
-  id: string
-  titulo: string
-  localizacao: string
-  nivel: string
-  modalidade: string
-  salarioMin: number
-  salarioMax: number
-  requisitos: string[]
-}
-
-const vagas = [
+const vagas: VagaData[] = [
   {
     id: 1,
     titulo: 'Desenvolvedor front-end',
@@ -25,7 +24,7 @@ const vagas = [
     modalidade: 'clt',
     salarioMin: 3000,
     salarioMax: 4500,
-    requisitos: ['HTML', 'CSS', 'JavaScript', 'jQuery']
+    requisitos: ['HTML', 'CSS', 'JavaScript', 'jQuery'],
   },
   {
     id: 2,
@@ -35,7 +34,7 @@ const vagas = [
     modalidade: 'pj',
     salarioMin: 5000,
     salarioMax: 6500,
-    requisitos: ['HTML', 'CSS', 'JavaScript', 'jQuery']
+    requisitos: ['HTML', 'CSS', 'JavaScript', 'jQuery'],
   },
   {
     id: 3,
@@ -45,7 +44,7 @@ const vagas = [
     modalidade: 'pj',
     salarioMin: 4000,
     salarioMax: 6000,
-    requisitos: ['HTML', 'CSS', 'JavaScript', 'jQuery']
+    requisitos: ['HTML', 'CSS', 'JavaScript', 'jQuery'],
   },
   {
     id: 4,
@@ -55,7 +54,7 @@ const vagas = [
     modalidade: 'clt',
     salarioMin: 4000,
     salarioMax: 5000,
-    requisitos: ['HTML', 'CSS', 'JavaScript', 'jQuery']
+    requisitos: ['HTML', 'CSS', 'JavaScript', 'jQuery'],
   },
   {
     id: 5,
@@ -65,7 +64,7 @@ const vagas = [
     modalidade: 'clt',
     salarioMin: 7000,
     salarioMax: 8000,
-    requisitos: ['HTML', 'CSS', 'JavaScript', 'jQuery']
+    requisitos: ['HTML', 'CSS', 'JavaScript', 'jQuery'],
   },
   {
     id: 6,
@@ -75,7 +74,7 @@ const vagas = [
     modalidade: 'pj',
     salarioMin: 12000,
     salarioMax: 15000,
-    requisitos: ['HTML', 'CSS', 'JavaScript', 'jQuery']
+    requisitos: ['HTML', 'CSS', 'JavaScript', 'jQuery'],
   },
   {
     id: 7,
@@ -85,36 +84,20 @@ const vagas = [
     modalidade: 'clt',
     salarioMin: 4000,
     salarioMax: 5000,
-    requisitos: ['HTML', 'CSS', 'JavaScript', 'jQuery']
-  }
-]
+    requisitos: ['HTML', 'CSS', 'JavaScript', 'jQuery'],
+  },
+];
 
 const ListaVagas = () => {
-  const [filtro, setFiltro] = useState<string>('')
+  const [filtro, setFiltro] = useState<string>('');
 
-  const vagasFiltradas = vagas.filter(
-    (x) => x.titulo.toLocaleLowerCase().search(filtro) >= 0
-  )
+  const vagasFiltradas = vagas.filter((x) =>
+    x.titulo.toLocaleLowerCase().includes(filtro.toLocaleLowerCase())
+  );
 
   return (
     <div>
       <FormVagas aoPesquisar={(termo: string) => setFiltro(termo)} />
       <ul className={styles.vagas}>
-        {vagasFiltradas.map((vag) => (
+        {vagasFiltradas.map((vag: VagaData) => (
           <Vaga
-            key={vag.id}
-            titulo={vag.titulo}
-            localizacao={vag.localizacao}
-            nivel={vag.nivel}
-            modalidade={vag.modalidade}
-            salarioMin={vag.salarioMin}
-            salarioMax={vag.salarioMax}
-            requisitos={vag.requisitos}
-          />
-        ))}
-      </ul>
-    </div>
-  )
-}
-
-export default ListaVagas

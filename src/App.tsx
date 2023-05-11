@@ -1,10 +1,10 @@
-import Header from './components/Cabecalho'
-import Hero from './components/Hero'
-import ListaVagas from './containers/ListaVagas'
+import Header from './components/Cabecalho';
+import Hero from './components/Hero';
+import ListaVagas from './containers/ListaVagas';
 
-import './global.css'
+import './global.css';
 
-function App() {
+function App(): JSX.Element {
   return (
     <>
       <Header />
@@ -13,7 +13,8 @@ function App() {
         <ListaVagas />
       </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
+

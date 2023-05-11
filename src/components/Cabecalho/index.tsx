@@ -1,9 +1,16 @@
-import styles from './Cabecalho.module.css'
+import React from 'react';
+import styles from './Cabecalho.module.css';
 
-const Cabecalho = () => (
-  <header className={styles.cabecalho}>
-    <h1>EBAC Jobs</h1>
-  </header>
-)
+interface CabecalhoProps {
+  titulo: string;
+}
 
-export default Cabecalho
+const Cabecalho: React.FC<CabecalhoProps> = ({ titulo }) => {
+  return (
+    <header className={styles.cabecalho}>
+      <h1>{titulo}</h1>
+    </header>
+  );
+};
+
+export default Cabecalho;

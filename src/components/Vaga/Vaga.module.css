@@ -1,42 +1,44 @@
 .vaga {
-  border: 1px solid var(--cor-principal);
-  background-color: var(--cor-secundaria);
-  color: var(--cor-principal);
+  border: 1px solid #333;
+  background-color: #eee;
+  color: #333;
   padding: 16px;
   transition: all ease .3s;
   border-radius: 8px;
 }
 
-.vagaTitulo {
+.vaga .vagaTitulo {
   font-weight: bold;
   margin-bottom: 16px;
 }
 
-.vagaLink {
-  border-color: var(--cor-secundaria);
-    background-color: var(--cor-principal);
-    color: var(--cor-secundaria);
-    display: inline-block;
-    padding: 8px 16px;
-    text-decoration: none;
-    margin-top: 16px;
-    font-weight: bold;
-    font-size: 14px;
-    border-radius: 8px;
-    text-align: center;
+.vaga .vagaLink {
+  border-color: #eee;
+  background-color: #333;
+  color: #eee;
+  display: inline-block;
+  padding: 8px 16px;
+  text-decoration: none;
+  margin-top: 16px;
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 8px;
+  text-align: center;
+}
 
-    @media (max-width: 768px) {
-      display: block;
-    }
+@media (max-width: 768px) {
+  .vaga .vagaLink {
+    display: block;
+  }
 }
 
 .vaga:hover {
-  background-color: var(--cor-principal);
-  color: var(--cor-secundaria);
+  background-color: #333;
+  color: #eee;
 }
 
-.vaga:hover a {
-  border-color: var(--cor-principal);
-  background-color: var(--cor-secundaria);
-  color: var(--cor-principal);
+.vaga:hover .vagaLink {
+  border-color: #333;
+  background-color: #eee;
+  color: #333;
 }

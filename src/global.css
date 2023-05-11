@@ -1,24 +1,22 @@
 :root {
-  --cor-principal: #a7727d;
-  --cor-secundaria: #f9f5e7;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Lato, sans-serif;
-  list-style: none;
+  --cor-principal: #FF7F50;
+  --cor-secundaria: #F5F5DC;
 }
 
 body {
-  padding-bottom: 120px;
+  margin: 0;
+  padding: 0;
+  font-family: Lato, sans-serif;
+  background-color: var(--cor-secundaria);
 }
 
 .container {
   max-width: 1024px;
   width: 100%;
   margin: 0 auto;
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 1024px) {
@@ -26,3 +24,4 @@ body {
     max-width: 80%;
   }
 }
+

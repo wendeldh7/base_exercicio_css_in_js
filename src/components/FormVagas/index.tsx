@@ -1,18 +1,17 @@
-import { FormEvent, useState } from 'react'
+import { FormEvent, useState } from 'react';
+import styles from './FormVagas.module.css';
 
-import styles from './FormVagas.module.css'
-
-type Props = {
-  aoPesquisar: (termo: string) => void
+interface Props {
+  aoPesquisar: (termo: string) => void;
 }
 
-const FormVagas = ({ aoPesquisar }: Props) => {
-  const [termo, setTermo] = useState<string>('')
+const FormVagas: React.FC<Props> = ({ aoPesquisar }) => {
+  const [termo, setTermo] = useState('');
 
   const aoEnviarForm = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    aoPesquisar(termo.toLocaleLowerCase())
-  }
+    e.preventDefault();
+    aoPesquisar(termo.toLowerCase());
+  };
 
   return (
     <form className={styles.form} onSubmit={aoEnviarForm}>
@@ -26,6 +25,7 @@ const FormVagas = ({ aoPesquisar }: Props) => {
         Pesquisar
       </button>
     </form>
-  )
-}
-export default FormVagas
+  );
+};
+
+export default FormVagas;
